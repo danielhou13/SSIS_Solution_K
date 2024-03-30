@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{9B8B200F-3850-43A9-97A1-6FAF26E49ACD}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{84B12F77-8452-468E-A44A-D6ABA060D876}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,6 +22,8 @@
       DTS:Description="KORE CSV file connection"
       DTS:DTSID="{DE2EAD6E-56F5-4C8C-9D06-FF818B7E0F38}"
       DTS:ObjectName="CSV file connection manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Filename]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -143,14 +145,35 @@
           Language="CSharp"
           ReadOnlyVariables="User::Filename">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_6f6b9286f39940d49e63e270e75f7401")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_6f6b9286f39940d49e63e270e75f7401")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -532,35 +555,14 @@ namespace ST_6f6b9286f39940d49e63e270e75f7401.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_6f6b9286f39940d49e63e270e75f7401")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_6f6b9286f39940d49e63e270e75f7401")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -748,6 +750,23 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clean Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B42D48ED-1AF5-415B-B021-5627267B627C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
+          SQLTask:SqlStatementSource="EXEC dbo.remove_staging_duplicates" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1860,16 +1879,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncating Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B07D3294-7C3A-4975-A2A7-667D8B4D54BA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncating Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.Users" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{4604DC91-8D59-4768-9CAA-FC4C9A9DCF25}"
+      DTS:DTSID="{E624CC63-9791-46D0-ACA4-526F429AB0A2}"
       DTS:From="Package\Clean csv file to remove trailing spaces after text qualifier"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncating Staging Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6B71FF17-899A-4570-895F-356AF561956E}"
+      DTS:From="Package\Truncating Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
       DTS:To="Package\Import CSV data to Staging Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{91E548C9-3E13-418C-8C77-76C518023AC4}"
+      DTS:From="Package\Import CSV data to Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Clean Staging Table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1882,7 +1934,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="357,42"
           Id="Package\Clean csv file to remove trailing spaces after text qualifier"
@@ -1890,21 +1942,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <NodeLayout
           Size="243,42"
           Id="Package\Import CSV data to Staging Table"
-          TopLeft="537,215" />
+          TopLeft="540,292" />
+        <AnnotationLayout
+          Text="When copying the csv data into a file, I noticed that some rows had spaces at the end of the line which causes the &#xA;flat file connection manager to not work properly when setting &quot; as a text qualifier in the flat file connection manager. &#xA;&#xA;Was not sure whether this was intentional, but instead of manually removing the problematic spaces, I created a script to remove the &#xA;problematic spaces programmatically.  Manually removing would have been sufficient for this 30 row csv file, but would not be reasonable in&#xD;&#xA;production"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="773,120"
+          Id="20bd868c-5b1c-44dd-852b-42511982edd0"
+          TopLeft="680,90" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Truncating Staging Table"
+          TopLeft="553,220" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="657.5,87">
+          TopLeft="655.25,87">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,128"
+              EndConnector="0,133"
               Start="0,0"
-              End="0,120.5">
+              End="0,125.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,120.5" />
+                    End="0,125.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1913,13 +1976,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="When copying the csv data into a file, I noticed that some rows had spaces at the end of the line which causes the &#xA;flat file connection manager to not work properly when setting &quot; as a text qualifier in the flat file connection manager. &#xA;&#xA;Was not sure whether this was intentional, so instead of manually removing the problematic spaces, tried my first attempt at a script to remove the &#xA;problematic spaces programmatically. "
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="808,104"
-          Id="20bd868c-5b1c-44dd-852b-42511982edd0"
-          TopLeft="680,90" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="657.75,262">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Clean Staging Table"
+          TopLeft="569,405" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="660,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1934,16 +2038,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           TopLeft="21.4,209.5" />
         <NodeLayout
           Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Import data from CSV file"
-          TopLeft="21.4,5.5" />
-        <NodeLayout
-          Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Add to staging table"
-          TopLeft="21.4,431.5" />
+          Id="Package\Import CSV data to Staging Table\Sort by User ID"
+          TopLeft="21.4,349" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns"
           TopLeft="21.4,106.5" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Import CSV data to Staging Table\Add to staging table"
+          TopLeft="23.4,498.5" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Import CSV data to Staging Table\Import data from CSV file"
+          TopLeft="21.4,5.5" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Flat File Source Output]"
           TopLeft="150.9,47.5">
@@ -1988,24 +2096,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms."
-          ParentId="Package\Import CSV data to Staging Table"
-          FontInfo="{assembly:Null}"
-          Size="606,72"
-          Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
-          TopLeft="288.5,252.5" />
-        <AnnotationLayout
-          Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
-          ParentId="Package\Import CSV data to Staging Table"
-          FontInfo="{assembly:Null}"
-          Size="589,72"
-          Id="3ba413e3-6026-4445-b0f0-c85c55086525"
-          TopLeft="285,27.4999999999999" />
-        <NodeLayout
-          Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Sort by User ID"
-          TopLeft="21.4,349" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Data Conversion Output]"
           TopLeft="150.9,251.5">
@@ -2028,20 +2118,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="606,72"
+          Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
+          TopLeft="288.5,252.5" />
+        <AnnotationLayout
+          Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="589,72"
+          Id="3ba413e3-6026-4445-b0f0-c85c55086525"
+          TopLeft="285,27.4999999999999" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Sort Output]"
-          TopLeft="150.9,391">
+          TopLeft="151.9,391">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.5"
+              EndConnector="0,107.5"
               Start="0,0"
-              End="0,33">
+              End="0,100">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33" />
+                    End="0,100" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

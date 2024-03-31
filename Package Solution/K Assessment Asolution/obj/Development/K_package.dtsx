@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="147"
-  DTS:VersionGUID="{480AD6A6-F3BF-42D1-BE79-1D56EAC4036C}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{BC276DF9-BA85-435B-A2E1-500472E1254A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -103,11 +103,11 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Error Row Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[Error CSV File Connection Manager]"
       DTS:CreationName="FLATFILE"
       DTS:Description="Connection Manager for redirecting error rows"
       DTS:DTSID="{60B6E5C5-4B76-4C38-99E1-F2387F1731AF}"
-      DTS:ObjectName="Error Row Connection Manager">
+      DTS:ObjectName="Error CSV File Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -125,7 +125,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UserID"
-              DTS:DTSID="{3DDE3EA7-6BB5-4DE5-833D-3F8B9D57C863}"
+              DTS:DTSID="{2AFC587F-86B2-4CA0-8E0F-3F9565F52055}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -134,7 +134,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FullName"
-              DTS:DTSID="{B27F12D3-7B53-494B-A6B7-70EE74A1FDC1}"
+              DTS:DTSID="{6C523DBE-C914-402E-A203-192057D64829}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -143,7 +143,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{B81DED69-F17C-4FEE-AB78-BE073D771B00}"
+              DTS:DTSID="{C8E5B999-9DD2-473A-8CA1-2AF0688117EB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -152,7 +152,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Email"
-              DTS:DTSID="{AB71A2D9-D6B8-421A-A674-3DA5CB8F680C}"
+              DTS:DTSID="{239BB65E-FBF0-4A0E-BA0A-094496CA0A84}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +161,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RegistrationDate"
-              DTS:DTSID="{1DA54195-3CDE-4ED4-B57E-4FD256FA1E0F}"
+              DTS:DTSID="{E4D16968-6DCF-4126-BD1F-81096776DF86}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -170,7 +170,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastLoginDate"
-              DTS:DTSID="{28193C58-1670-4410-B7F7-0B1EDC72FBD8}"
+              DTS:DTSID="{B00BEE8D-05A8-4569-B76B-5971E8332689}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -179,7 +179,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PurchaseTotal"
-              DTS:DTSID="{3C8C8F87-0036-4564-91A4-719983B72F66}"
+              DTS:DTSID="{4477094F-69B2-4F8E-A195-3BA406401E4A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -854,23 +854,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Clean Staging Table"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B42D48ED-1AF5-415B-B021-5627267B627C}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Clean Staging Table"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
-          SQLTask:SqlStatementSource="EXEC dbo.remove_duplicates_from_staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Extract Error Rows to File"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -910,8 +893,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               <connections>
                 <connection
                   refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Error Row Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Error Row Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Error CSV File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Error CSV File Connection Manager]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -2363,34 +2346,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[FullName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="FullName"
-                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]" />
-                    <inputColumn
-                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[Email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Email"
-                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]" />
-                    <inputColumn
-                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[RegistrationDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="RegistrationDate"
-                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
-                    <inputColumn
-                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[LastLoginDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="LastLoginDate"
-                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]" />
-                    <inputColumn
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[UserID Processed]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -2408,6 +2363,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedLength="50"
                       cachedName="PurchaseTotal Processed"
                       lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[PurchaseTotal Processed]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[Email Processed]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email Processed"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[Email Processed]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[RegistrationDate Processed]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegistrationDate Processed"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[RegistrationDate Processed]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[LastLoginDate Processed]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastLoginDate Processed"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[LastLoginDate Processed]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Inputs[Data Conversion Input].Columns[FullName Processed]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FullName Processed"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[FullName Processed]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2443,7 +2422,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[FullName Converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
+                      errorRowDisposition="FailComponent"
                       length="255"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[FullName Converted]"
                       name="FullName Converted"
@@ -2453,7 +2432,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Remove "null" from numeric columns.Outputs[Derived Column Output].Columns[FullName Processed]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2484,7 +2463,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Email Converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
+                      errorRowDisposition="FailComponent"
                       length="255"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Email Converted]"
                       name="Email Converted"
@@ -2494,7 +2473,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Remove "null" from numeric columns.Outputs[Derived Column Output].Columns[Email Processed]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2505,7 +2484,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[RegistrationDate Converted]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
+                      errorRowDisposition="FailComponent"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[RegistrationDate Converted]"
                       name="RegistrationDate Converted"
                       truncationRowDisposition="FailComponent">
@@ -2514,7 +2493,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Remove "null" from numeric columns.Outputs[Derived Column Output].Columns[RegistrationDate Processed]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2525,7 +2504,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[LastLoginDate Converted]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
+                      errorRowDisposition="FailComponent"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[LastLoginDate Converted]"
                       name="LastLoginDate Converted"
                       truncationRowDisposition="FailComponent">
@@ -2534,7 +2513,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Import CSV data to Staging Table\Remove "null" from numeric columns.Outputs[Derived Column Output].Columns[LastLoginDate Processed]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2614,8 +2593,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\Import CSV data to Staging Table\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Error Row Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Error Row Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Error CSV File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Error CSV File Connection Manager]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -2687,43 +2666,43 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="UserID" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="FullName" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Age]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="Age" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Email]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="Email" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="RegistrationDate" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="LastLoginDate" />
                     <externalMetadataColumn
                       refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="PurchaseTotal" />
                   </externalMetadataColumns>
                 </input>
@@ -3024,6 +3003,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedLength="50"
                       cachedName="PurchaseTotal"
                       lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Inputs[Derived Column Input].Columns[FullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Inputs[Derived Column Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Inputs[Derived Column Input].Columns[RegistrationDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Inputs[Derived Column Input].Columns[LastLoginDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3050,13 +3057,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[UserID]} == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[UserID]}</property>
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[UserID]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[UserID]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">UserID == "null" ? NULL(DT_WSTR,50) : UserID</property>
+                          name="FriendlyExpression">LOWER(TRIM(UserID)) == "null" ? NULL(DT_WSTR,50) : UserID</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3073,13 +3080,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Age]} == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Age]}</property>
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Age]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Age]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">Age == "null" ? NULL(DT_WSTR,50) : Age</property>
+                          name="FriendlyExpression">LOWER(TRIM(Age)) == "null" ? NULL(DT_WSTR,50) : Age</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3096,13 +3103,105 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]} == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]}</property>
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">PurchaseTotal == "null" ? NULL(DT_WSTR,50) : PurchaseTotal</property>
+                          name="FriendlyExpression">LOWER(TRIM(PurchaseTotal)) == "null" ? NULL(DT_WSTR,50) : PurchaseTotal</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[FullName Processed]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[FullName Processed]"
+                      name="FullName Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER(TRIM(FullName)) == "null" ? NULL(DT_WSTR,50) : FullName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[Email Processed]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[Email Processed]"
+                      name="Email Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER(TRIM(Email)) == "null" ? NULL(DT_WSTR,50) : Email</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[RegistrationDate Processed]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[RegistrationDate Processed]"
+                      name="RegistrationDate Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER(TRIM(RegistrationDate)) == "null" ? NULL(DT_WSTR,50) : RegistrationDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[LastLoginDate Processed]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns.Outputs[Derived Column Output].Columns[LastLoginDate Processed]"
+                      name="LastLoginDate Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]([TRIM](#{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]})) == "null" ? NULL(DT_WSTR,50) : #{Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER(TRIM(LastLoginDate)) == "null" ? NULL(DT_WSTR,50) : LastLoginDate</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4241,6 +4340,23 @@ WHERE UserID =?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Remove Duplicates"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B42D48ED-1AF5-415B-B021-5627267B627C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove Duplicates"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
+          SQLTask:SqlStatementSource="EXEC dbo.remove_duplicates_from_staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncating Staging Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -4282,12 +4398,12 @@ WHERE UserID =?</property>
       DTS:From="Package\Import CSV data to Staging Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Clean Staging Table" />
+      DTS:To="Package\Remove Duplicates" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
       DTS:DTSID="{DFFBCB9C-EB26-4A4D-A7A0-6592D1F019A6}"
-      DTS:From="Package\Clean Staging Table"
+      DTS:From="Package\Remove Duplicates"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Isolate Error Rows" />
@@ -4325,8 +4441,8 @@ WHERE UserID =?</property>
           Id="Package\Clean csv file to remove trailing spaces after text qualifier"
           TopLeft="478,45" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\Clean Staging Table"
+          Size="174,42"
+          Id="Package\Remove Duplicates"
           TopLeft="566,364" />
         <NodeLayout
           Size="204,42"
@@ -4394,18 +4510,30 @@ WHERE UserID =?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="658.5,334">
+          TopLeft="661.5,334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30"
+              EndConnector="-8.5,30"
               Start="0,0"
-              End="0,22.5">
+              End="-8.5,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="-4,15" />
+                  <mssgle:LineSegment
+                    End="-4.5,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,15"
+                    Point2="-8.5,15"
+                    Point3="-8.5,19" />
+                  <mssgle:LineSegment
+                    End="-8.5,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4416,7 +4544,7 @@ WHERE UserID =?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="655,406">
+          TopLeft="653.75,406">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4512,12 +4640,12 @@ WHERE UserID =?</property>
           Id="20bd868c-5b1c-44dd-852b-42511982edd0"
           TopLeft="680,90" />
         <AnnotationLayout
-          Text="Clean up the staging table using a stored procedure and an execute SQL task to &quot;execute&quot; it.&#xA;Will remove duplicate rows based on UserId, and remove any rows with missing UserID"
+          Text="Clean up the staging table using a stored procedures. Remove duplicates based on UserID&#xD;&#xA;&#xD;&#xA;Redirect error rows based on invalid email, null email or null PurchaseTotal. "
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="517,56"
+          Size="505,72"
           Id="d3924d4b-6b42-4cee-9132-8262fb705d17"
-          TopLeft="773,385" />
+          TopLeft="747,370" />
         <AnnotationLayout
           Text="Send error rows here"
           ParentId="Package"
@@ -4532,6 +4660,13 @@ WHERE UserID =?</property>
           Size="142,40"
           Id="49de41e0-e8fc-4e35-ae2f-c5490117bcb5"
           TopLeft="730,472" />
+        <AnnotationLayout
+          Text="Reset staging table"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="130,60"
+          Id="4bdf322a-903f-4f4a-b731-6f0918113e86"
+          TopLeft="760,224" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4539,7 +4674,7 @@ WHERE UserID =?</property>
     design-time-name="Package\Extract Error Rows to File">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="228,42"
           Id="Package\Extract Error Rows to File\Output Error Rows to CSV File"
@@ -4570,6 +4705,20 @@ WHERE UserID =?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Retrieve error rows from our clean staging table stored procedure. Append the rows onto the error.csv file."
+          ParentId="Package\Extract Error Rows to File"
+          FontInfo="{assembly:Null}"
+          Size="591,60"
+          Id="230982cf-0385-4513-acaf-06026becd5b8"
+          TopLeft="647,102" />
+        <AnnotationLayout
+          Text="The csv file at this stage of the task has header values set for us.&#xD;&#xA;Append remaining error rows to the end."
+          ParentId="Package\Extract Error Rows to File"
+          FontInfo="{assembly:Null}"
+          Size="366,60"
+          Id="e9655f0d-631d-4dfb-bd4b-8ce936ce662d"
+          TopLeft="622,299" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4687,12 +4836,12 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xA;&#xA;If we cannot convert to the datatypes here, we assume a faulty row and remove it/redirect it to the error csv."
+          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xA;&#xA;If we converting data types gives us an error, we assume a faulty row and remove it/redirect it to the error csv."
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
-          Size="606,104"
+          Size="610,104"
           Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
-          TopLeft="292.5,341.5" />
+          TopLeft="161.5,331.5" />
         <AnnotationLayout
           Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
           ParentId="Package\Import CSV data to Staging Table"
@@ -4728,6 +4877,27 @@ WHERE UserID =?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="With or without any error rows, we reset the error.csv &#xD;&#xA;for this file and add the headers in."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="313,60"
+          Id="98573f8a-53bb-4d04-bae6-cb5712c46a9b"
+          TopLeft="496,245" />
+        <AnnotationLayout
+          Text="Looks nicer when sorted"
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="158,60"
+          Id="388b1631-8608-4546-8261-ba6d28fa9bcf"
+          TopLeft="165,472" />
+        <AnnotationLayout
+          Text="Replace the word &quot;null&quot; with an actual NULL value."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="295,60"
+          Id="a80f8913-a8aa-4aa8-83f7-c1bc364718a4"
+          TopLeft="302,183" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

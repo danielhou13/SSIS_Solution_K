@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="155"
-  DTS:VersionGUID="{BC276DF9-BA85-435B-A2E1-500472E1254A}">
+  DTS:VersionBuild="156"
+  DTS:VersionGUID="{4C36DDFB-EFC7-4053-9F95-D75B7956CBA5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4897,7 +4897,7 @@ WHERE UserID =?</property>
           FontInfo="{assembly:Null}"
           Size="295,60"
           Id="a80f8913-a8aa-4aa8-83f7-c1bc364718a4"
-          TopLeft="302,183" />
+          TopLeft="287,180" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

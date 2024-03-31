@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="125"
-  DTS:VersionGUID="{AE248DC4-34C7-4C80-B802-74FCE93C1A7C}">
+  DTS:VersionBuild="147"
+  DTS:VersionGUID="{480AD6A6-F3BF-42D1-BE79-1D56EAC4036C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -113,7 +113,6 @@
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
@@ -122,60 +121,65 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UserID"
-              DTS:DTSID="{DE98D5F2-CBD9-4FA5-8B23-3AE7EEA94690}"
+              DTS:DTSID="{3DDE3EA7-6BB5-4DE5-833D-3F8B9D57C863}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FullName"
-              DTS:DTSID="{70E77E6E-F8CA-4EAE-A8D8-23C19E3768A4}"
+              DTS:DTSID="{B27F12D3-7B53-494B-A6B7-70EE74A1FDC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{0CA47796-369F-4720-8363-B97EE1DD49E2}"
+              DTS:DTSID="{B81DED69-F17C-4FEE-AB78-BE073D771B00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="255"
-              DTS:DataType="130"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Email"
-              DTS:DTSID="{419EF06E-9186-4403-A1D3-541920A6C941}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="RegistrationDate"
-              DTS:DTSID="{AA94038C-38E3-4B8A-974B-C48EE87D6E38}"
+              DTS:DTSID="{AB71A2D9-D6B8-421A-A674-3DA5CB8F680C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="255"
-              DTS:DataType="130"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{1DA54195-3CDE-4ED4-B57E-4FD256FA1E0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastLoginDate"
-              DTS:DTSID="{2240CD9C-F318-410D-B3BA-04903F817A8A}"
+              DTS:DTSID="{28193C58-1670-4410-B7F7-0B1EDC72FBD8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="3"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PurchaseTotal"
-              DTS:DTSID="{1A8DE2F0-D698-44FC-9533-9137C1772713}"
+              DTS:DTSID="{3C8C8F87-0036-4564-91A4-719983B72F66}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -241,15 +245,6 @@
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="User::Filename">
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -369,6 +364,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6f6b9286f39940d49e63e270e75f7401.Properties.Settings.get_Default():ST_6f6b9286f39940d49e63e270e75f7401.Properties.Sett" +
+    "ings")]
+
+namespace ST_6f6b9286f39940d49e63e270e75f7401.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -602,35 +626,6 @@ namespace ST_6f6b9286f39940d49e63e270e75f7401
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6f6b9286f39940d49e63e270e75f7401.Properties.Settings.get_Default():ST_6f6b9286f39940d49e63e270e75f7401.Properties.Sett" +
-    "ings")]
-
-namespace ST_6f6b9286f39940d49e63e270e75f7401.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-          <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -660,6 +655,15 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -892,7 +896,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                 <property
                   dataType="System.Boolean"
                   description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
+                  name="Overwrite">false</property>
                 <property
                   dataType="System.Null"
                   description="Specifies the text to write to the destination file before any data is written."
@@ -917,45 +921,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[PurchaseTotal]"
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[UserID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
-                      cachedName="PurchaseTotal"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]" />
-                    <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[LastLoginDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="LastLoginDate"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]" />
-                    <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[RegistrationDate]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="RegistrationDate"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]" />
-                    <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Email"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Email]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]" />
-                    <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Age]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Age"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Age]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]" />
+                      cachedName="UserID"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]" />
                     <inputColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[FullName]"
                       cachedCodepage="1252"
@@ -965,45 +937,89 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
                       lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[FullName]" />
                     <inputColumn
-                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[UserID]"
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Age]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="UserID"
-                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]" />
+                      cachedLength="255"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[RegistrationDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[LastLoginDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LastLoginDate"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[PurchaseTotal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PurchaseTotal"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
-                      dataType="r8"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="UserID" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
-                      dataType="dbDate"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="FullName" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Age]"
-                      dataType="dbDate"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Age" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Email]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="Email" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="RegistrationDate" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="255"
                       name="LastLoginDate" />
                     <externalMetadataColumn
                       refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="PurchaseTotal" />
                   </externalMetadataColumns>
                 </input>
@@ -1413,14 +1429,14 @@ public class Output0Buffer: ScriptBuffer
     {
     }
 
-    public String PurchaseTotal
+    public String UserID
     {
         set
         {
             this[0] = value;
         }
     }
-    public bool PurchaseTotal_IsNull
+    public bool UserID_IsNull
     {
         set
         {
@@ -1435,14 +1451,14 @@ public class Output0Buffer: ScriptBuffer
         }
     }
 
-    public String LastLoginDate
+    public String FullName
     {
         set
         {
             this[1] = value;
         }
     }
-    public bool LastLoginDate_IsNull
+    public bool FullName_IsNull
     {
         set
         {
@@ -1457,14 +1473,14 @@ public class Output0Buffer: ScriptBuffer
         }
     }
 
-    public String RegistrationDate
+    public String Age
     {
         set
         {
             this[2] = value;
         }
     }
-    public bool RegistrationDate_IsNull
+    public bool Age_IsNull
     {
         set
         {
@@ -1501,14 +1517,14 @@ public class Output0Buffer: ScriptBuffer
         }
     }
 
-    public String Age
+    public String RegistrationDate
     {
         set
         {
             this[4] = value;
         }
     }
-    public bool Age_IsNull
+    public bool RegistrationDate_IsNull
     {
         set
         {
@@ -1523,14 +1539,14 @@ public class Output0Buffer: ScriptBuffer
         }
     }
 
-    public String UserID
+    public String LastLoginDate
     {
         set
         {
             this[5] = value;
         }
     }
-    public bool UserID_IsNull
+    public bool LastLoginDate_IsNull
     {
         set
         {
@@ -1545,14 +1561,14 @@ public class Output0Buffer: ScriptBuffer
         }
     }
 
-    public String FullName
+    public String PurchaseTotal
     {
         set
         {
             this[6] = value;
         }
     }
-    public bool FullName_IsNull
+    public bool PurchaseTotal_IsNull
     {
         set
         {
@@ -1720,7 +1736,7 @@ namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
     <msb:CodeName>SC_d40fefd7a9594660af4c5997c4e57032</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_d40fefd7a9594660af4c5997c4e57032</msb:DisplayName>
-    <msb:ProjectId>{A5E46C0A-7E71-437C-AEF0-36690D45DF1B}</msb:ProjectId>
+    <msb:ProjectId>{A446D622-7F1A-413E-A4B4-23848E3967DC}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_d40fefd7a9594660af4c5997c4e57032.csproj" />
@@ -1867,7 +1883,7 @@ namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPs2CWYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAASjkA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEjgCWYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAASjkA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPg4AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1877,10 +1893,10 @@ LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAs
 OQAAAAAAAEgAAAACAAUA5CMAAFwUAAABAAAAAAAAAEA4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACiobMAMAIQEAAAEAABFzEgAACnMT
 AAAKCgYCewIAAARvHgAABm8UAAAKJgZvFQAACm8WAAAKCzjUAAAAB28XAAAKdBAAAAEMAnsDAAAE
-bxQAAAYCewMAAAQIcgEAAHBvGAAACm8ZAAAKbxAAAAYCewMAAAQIcg8AAHBvGAAACm8ZAAAKbxIA
-AAYCewMAAAQIciEAAHBvGAAACm8ZAAAKbw4AAAYCewMAAAQIcikAAHBvGAAACm8ZAAAKbwwAAAYC
-ewMAAAQIcjUAAHBvGAAACm8ZAAAKbwoAAAYCewMAAAQIclcAAHBvGAAACm8ZAAAKbwgAAAYCewMA
-AAQIcnMAAHBvGAAACm8ZAAAKbwYAAAYHbxoAAAo6If///94RB3URAAABDQksBglvGwAACtwqAAAA
+bxQAAAYCewMAAAQIcgEAAHBvGAAACm8ZAAAKbwYAAAYCewMAAAQIcg8AAHBvGAAACm8ZAAAKbwgA
+AAYCewMAAAQIciEAAHBvGAAACm8ZAAAKbwoAAAYCewMAAAQIcikAAHBvGAAACm8ZAAAKbwwAAAYC
+ewMAAAQIcjUAAHBvGAAACm8ZAAAKbw4AAAYCewMAAAQIclcAAHBvGAAACm8ZAAAKbxAAAAYCewMA
+AAQIcnMAAHBvGAAACm8ZAAAKbxIAAAYHbxoAAAo6If///94RB3URAAABDQksBglvGwAACtwqAAAA
 ARAAAAIAKQDmDwERAAAAAB4CKBcAAAYqKgIDBAUoHAAACiomAhYDKB0AAAoqWgMsCAIWKB4AAAoq
 co8AAHBzHwAACnomAhcDKB0AAAoqWgMsCAIXKB4AAAoqco8AAHBzHwAACnomAhgDKB0AAAoqWgMs
 CAIYKB4AAAoqco8AAHBzHwAACnomAhkDKB0AAAoqWgMsCAIZKB4AAAoqco8AAHBzHwAACnomAhoD
@@ -1903,10 +1919,10 @@ BgDnAMgEBgCsCBAFAAAAAF4AAAAAAAEAAQABABAA2wQAABAAAQABAAEAEACVBQAASQABAAUAAQAQ
 AMgHAABVAAEAFwABABAAWQcAAFkABAAcAAEAEAAOBwAAWQAFAB0AAAAQAHcG0wZZAAYAHwAAARAA
 PQfTBnEACAAjAAYAWQesAAYADgewAAYAlQW0AAEA1ge4AAEA1ge4ABEAzwS8ABEAVgHAABEAuQDE
 AFAgAAAAAMYAewMGAAEAWCAAAAAAxgCGAwYAAQBgIAAAAADGAJIHBgABAKAhAAAAAIYYJgYGAAEA
-qCEAAAAAhhgmBkgAAQCzIQAAAACGCLsDEAAEAL0hAAAAAIYIhATIAAUA1CEAAAAAhgihARAABgDe
-IQAAAACGCE8EyAAHAPUhAAAAAIYIswEQAAgA/yEAAAAAhghoBMgACQAWIgAAAACGCOMDEAAKACAi
-AAAAAIYInQTIAAsANyIAAAAAhgjJABAADABBIgAAAACGCCwEyAANAFgiAAAAAIYIZwAQAA4AYiIA
-AAAAhggaBMgADwB5IgAAAACGCAsBEAAQAIMiAAAAAIYIOwTIABEAmiIAAAAAhgChCAYAEgCiIgAA
+qCEAAAAAhhgmBkgAAQCzIQAAAACGCGcAEAAEAL0hAAAAAIYIGgTIAAUA1CEAAAAAhggLARAABgDe
+IQAAAACGCDsEyAAHAPUhAAAAAIYIyQAQAAgA/yEAAAAAhggsBMgACQAWIgAAAACGCOMDEAAKACAi
+AAAAAIYInQTIAAsANyIAAAAAhgizARAADABBIgAAAACGCGgEyAANAFgiAAAAAIYIoQEQAA4AYiIA
+AAAAhghPBMgADwB5IgAAAACGCLsDEAAQAIMiAAAAAIYIhATIABEAmiIAAAAAhgChCAYAEgCiIgAA
 AACGAK0HBgASAKoiAAAAAIYAsAdEABIAsiIAAAAAhhgmBgYAEgDSIgAAAADGAW0HBgASANQiAAAA
 AIEApQAGABIA8CIAAAAAxgBACM0AEgDSIgAAAADGAZIHBgAWAEUjAAAAAIYYJgbZABYAVCMAAAAA
 hhgmBtkAFwBjIwAAAACGCIQHNwAYAIQjAAAAAIMYJgYGABgAjCMAAAAAkwi/Bd8AGAC4IwAAAACT
@@ -1920,8 +1936,8 @@ BzcAgQC2BDsAsQCyA0AAeQBMCEQAiQCZAQYAkQAmBkgAkQC/BFIAkQCuBAEACQEmBhAAkQChCAYA
 kQCtBwYAkQCwB0QAqQAmBgYAqQByAFwAqQAsB2MAsQAmBgYAqQACB2kAEQG2BG8AqQCECHYAGQFV
 CHwAMQH5AIMAMQGoCIwAwQAmBpIA4QAmBgYALgALABMBLgATABwBLgAbADsBLgAjAEQBLgArAG0B
 LgAzAG0BLgA7AG0BLgBDAEQBLgBLAHMBLgBTAG0BLgBbAIoBQwBjANQB4wBrANQBAQF7ANQBCQJz
-ADsBKQJzADsBGwBYAAMAAQAGAA8ABwAQAAgAEgAAAL8D+AAAAIgE/AAAAKUB+AAAAFME/AAAALcB
-+AAAAGwE/AAAAOcD+AAAAKEE/AAAAM0A+AAAADAE/AAAAGsA+AAAAB4E/AAAAA8B+AAAAD8E/AAA
+ADsBKQJzADsBGwBYAAMAAQAGAA8ABwAQAAgAEgAAAGsA+AAAAB4E/AAAAA8B+AAAAD8E/AAAAM0A
++AAAADAE/AAAAOcD+AAAAKEE/AAAALcB+AAAAGwE/AAAAKUB+AAAAFME/AAAAL8D+AAAAIgE/AAA
 AIgHAAEAAMMFBAEAAF4BCQEAAMAHDgEBAAYAAwABAAcABQABAAgABwABAAkACQABAAoACwABAAsA
 DQABAAwADwABAA0AEQABAA4AEwABAA8AFQABABAAFwABABEAGQABABIAGwABABMAHQACAB4AHwAC
 ACAAIQACACEAIwABACIAIwACACMAJQAEgAAAAQAAAAAAAAAAAAAAAAA6AAAABAAAAAAAAAAAAAAA
@@ -1974,7 +1990,7 @@ IABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABl
 ACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AABFPAHUAdABwAHUAdAAgADAAABNFAHIA
 cgBvAHIAUgBvAHcAcwAAcVMAQwBfAGQANAAwAGYAZQBmAGQANwBhADkANQA5ADQANgA2ADAAYQBm
 ADQAYwA1ADkAOQA3AGMANABlADUANwAwADMAMgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUA
-cwBvAHUAcgBjAGUAcwAATyyAuqtiYEmeteTPiyICuQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
+cwBvAHUAcgBjAGUAcwAAER4EOtxp/E+tQTAQc+7t+gAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
 aQoHBBI5Ej0SQRJFBiACCBI5HAQgABJ9BCAAEj0DIAAcBCABHA4DIAAOAyAAAgkgAwESTR0IElEF
 IAIBCBwDBwEIBgACCBJRDgUgAR0ICAUgABKAiQYgARKAjRwFAAASgJEGIAEcEoCVCAABEoCZEYCd
 BSAAEoChByACAQ4SgKEIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGEgwDBhJVAwYSYQMGEmUD
@@ -2074,45 +2090,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   name="Output 0">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
-                      name="PurchaseTotal" />
-                    <outputColumn
-                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
-                      name="LastLoginDate" />
-                    <outputColumn
-                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
-                      name="RegistrationDate" />
-                    <outputColumn
-                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
-                      name="Email" />
-                    <outputColumn
-                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
-                      name="Age" />
-                    <outputColumn
                       refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]"
                       name="UserID" />
                     <outputColumn
@@ -2122,6 +2103,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="255"
                       lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[FullName]"
                       name="FullName" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
+                      name="LastLoginDate" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
+                      name="PurchaseTotal" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2571,6 +2587,147 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   <externalMetadataColumns />
                 </output>
               </outputs>
+            </component>
+            <component
+              refId="Package\Import CSV data to Staging Table\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header">UserID,FullName,Age,Email,RegistrationDate,LastLoginDate,PurchaseTotal</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import CSV data to Staging Table\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Error Row Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Error Row Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[UserID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[UserID]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[FullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[RegistrationDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[LastLoginDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].Columns[PurchaseTotal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurchaseTotal"
+                      externalMetadataColumnId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Import CSV data to Staging Table\Import data from CSV file.Outputs[Flat File Source Output].Columns[PurchaseTotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PurchaseTotal" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
             </component>
             <component
               refId="Package\Import CSV data to Staging Table\Import data from CSV file"
@@ -3224,6 +3381,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </component>
           </components>
           <paths>
+            <path
+              refId="Package\Import CSV data to Staging Table.Paths[Data Conversion Error Output]"
+              endId="Package\Import CSV data to Staging Table\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Error Output]" />
             <path
               refId="Package\Import CSV data to Staging Table.Paths[Data Conversion Output]"
               endId="Package\Import CSV data to Staging Table\Sort by User ID.Inputs[Sort Input]"
@@ -4167,6 +4329,10 @@ WHERE UserID =?</property>
           Id="Package\Clean Staging Table"
           TopLeft="566,364" />
         <NodeLayout
+          Size="204,42"
+          Id="Package\Extract Error Rows to File"
+          TopLeft="319,519" />
+        <NodeLayout
           Size="243,42"
           Id="Package\Import CSV data to Staging Table"
           TopLeft="540,292" />
@@ -4174,6 +4340,10 @@ WHERE UserID =?</property>
           Size="199,42"
           Id="Package\Incremental load to Prod"
           TopLeft="796,527" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Isolate Error Rows"
+          TopLeft="570,443" />
         <NodeLayout
           Size="202,42"
           Id="Package\Truncating Staging Table"
@@ -4244,24 +4414,6 @@ WHERE UserID =?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="When copying the csv data into a file, I noticed that some rows had spaces at the end of the line which causes the &#xA;flat file connection manager to not work properly when setting &quot; as a text qualifier in the flat file connection manager. &#xA;&#xA;Was not sure whether this was intentional, but instead of manually removing the problematic spaces, I created a script to remove the &#xA;problematic spaces programmatically.  Manually removing would have been sufficient for this 30 row csv file, but would not be reasonable in&#xA;production"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="773,120"
-          Id="20bd868c-5b1c-44dd-852b-42511982edd0"
-          TopLeft="680,90" />
-        <AnnotationLayout
-          Text="Clean up the staging table using a stored procedure and an execute SQL task to &quot;execute&quot; it.&#xD;&#xA;Will remove duplicate rows based on UserId, and remove any rows with missing UserID"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="517,60"
-          Id="d3924d4b-6b42-4cee-9132-8262fb705d17"
-          TopLeft="773,385" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Isolate Error Rows"
-          TopLeft="570,443" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="655,406">
@@ -4318,10 +4470,6 @@ WHERE UserID =?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="204,42"
-          Id="Package\Extract Error Rows to File"
-          TopLeft="319,519" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="627.666666666667,485">
@@ -4357,35 +4505,87 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
+          Text="When copying the csv data into a file, I noticed that some rows had spaces at the end of the line which causes the &#xA;flat file connection manager to not work properly when setting &quot; as a text qualifier in the flat file connection manager. &#xA;&#xA;Was not sure whether this was intentional, but instead of manually removing the problematic spaces, I created a script to remove the &#xA;problematic spaces programmatically.  Manually removing would have been sufficient for this 30 row csv file, but would not be reasonable in&#xA;production"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="773,120"
+          Id="20bd868c-5b1c-44dd-852b-42511982edd0"
+          TopLeft="680,90" />
+        <AnnotationLayout
+          Text="Clean up the staging table using a stored procedure and an execute SQL task to &quot;execute&quot; it.&#xA;Will remove duplicate rows based on UserId, and remove any rows with missing UserID"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="517,56"
+          Id="d3924d4b-6b42-4cee-9132-8262fb705d17"
+          TopLeft="773,385" />
+        <AnnotationLayout
           Text="Send error rows here"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="140,60"
+          Size="140,40"
           Id="28d1a9ca-dab0-40cb-bca1-9d0c168d86dd"
           TopLeft="440,469" />
         <AnnotationLayout
           Text="Send good rows here"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="142,60"
+          Size="142,40"
           Id="49de41e0-e8fc-4e35-ae2f-c5490117bcb5"
           TopLeft="730,472" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Extract Error Rows to File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Extract Error Rows to File\Output Error Rows to CSV File"
+          TopLeft="401,306" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Extract Error Rows to File\Retrieve Data From Error Result Set"
+          TopLeft="391,100" />
+        <EdgeLayout
+          Id="Package\Extract Error Rows to File.Paths[Output 0]"
+          TopLeft="517,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,164"
+              Start="0,0"
+              End="0,156.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,156.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Import CSV data to Staging Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Convert to DB datatypes"
-          TopLeft="23.4,286.5" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Sort by User ID"
           TopLeft="23.4,426" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Import CSV data to Staging Table\Convert to DB datatypes"
+          TopLeft="23.4,286.5" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns"
@@ -4412,6 +4612,28 @@ WHERE UserID =?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,100" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import CSV data to Staging Table.Paths[Flat File Source Output]"
+          TopLeft="151.9,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,136"
+              Start="0,0"
+              End="0,128.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,128.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4465,12 +4687,12 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xD;&#xA;&#xD;&#xA;If we cannot convert to the datatypes here, we assume a faulty row and remove it."
+          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xA;&#xA;If we cannot convert to the datatypes here, we assume a faulty row and remove it/redirect it to the error csv."
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
           Size="606,104"
           Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
-          TopLeft="290.5,329.5" />
+          TopLeft="292.5,341.5" />
         <AnnotationLayout
           Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
           ParentId="Package\Import CSV data to Staging Table"
@@ -4478,26 +4700,32 @@ WHERE UserID =?</property>
           Size="589,72"
           Id="3ba413e3-6026-4445-b0f0-c85c55086525"
           TopLeft="285,27.4999999999999" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Import CSV data to Staging Table\Flat File Destination"
+          TopLeft="534,290" />
         <EdgeLayout
-          Id="Package\Import CSV data to Staging Table.Paths[Flat File Source Output]"
-          TopLeft="151.9,47.5">
+          Id="Package\Import CSV data to Staging Table.Paths[Data Conversion Error Output]"
+          TopLeft="282.4,309.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,136"
+              EndConnector="251.6,0"
               Start="0,0"
-              End="0,128.5">
+              End="244.1,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,128.5" />
+                    End="244.1,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="55.96361328125,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4522,6 +4750,10 @@ WHERE UserID =?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="212,42"
+          Id="Package\Incremental load to Prod\Upload to Production Table"
+          TopLeft="38,336" />
+        <NodeLayout
           Size="147,42"
           Id="Package\Incremental load to Prod\Staging Table"
           TopLeft="65.5,65.5" />
@@ -4530,33 +4762,9 @@ WHERE UserID =?</property>
           Id="Package\Incremental load to Prod\Lookup by User ID"
           TopLeft="81,185" />
         <NodeLayout
-          Size="212,42"
-          Id="Package\Incremental load to Prod\Upload to Production Table"
-          TopLeft="38,336" />
-        <EdgeLayout
-          Id="Package\Incremental load to Prod.Paths[Lookup No Match Output]"
-          TopLeft="141.5,227">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,109"
-              Start="0,0"
-              End="0,101.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,101.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,44.9453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="224,42"
+          Id="Package\Incremental load to Prod\Update Existing Rows in Prod"
+          TopLeft="335,341" />
         <EdgeLayout
           Id="Package\Incremental load to Prod.Paths[OLE DB Source Output]"
           TopLeft="139,107.5">
@@ -4588,13 +4796,35 @@ WHERE UserID =?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="224,42"
-          Id="Package\Incremental load to Prod\Update Existing Rows in Prod"
-          TopLeft="335,341" />
+        <EdgeLayout
+          Id="Package\Incremental load to Prod.Paths[Lookup No Match Output]"
+          TopLeft="141.5,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,109"
+              Start="0,0"
+              End="0,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,44.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Incremental load to Prod.Paths[Lookup Match Output]"
           TopLeft="193,227">
@@ -4632,22 +4862,35 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Using &quot;UserID&quot;, we can split the data flow into two parts. If theres no UserId in the produciton table, we add the new row in.&#xD;&#xA;If we found the UserId, we know that we need to update the table with the new data. "
+          Text="Using &quot;UserID&quot;, we can split the data flow into two parts. If theres no UserId in the produciton table, we add the new row in.&#xA;If we found the UserId, we know that we need to update the table with the new data. "
           ParentId="Package\Incremental load to Prod"
           FontInfo="{assembly:Null}"
-          Size="681,60"
+          Size="681,NaN"
           Id="e7a8ce32-3498-44ad-aae9-690c2c5453ae"
           TopLeft="285,191" />
         <AnnotationLayout
-          Text="For updating the data, if theres a null value in the new data coming in, use previous value already in prod table for&#xD;&#xA;name, registration date, last login, and email. &#xD;&#xA;*point of discussion*"
+          Text="For updating the data, if theres a null value in the new data coming in, use previous value already in prod table for&#xA;name, registration date, last login, and email. &#xA;*point of discussion*"
           ParentId="Package\Incremental load to Prod"
           FontInfo="{assembly:Null}"
-          Size="632,72"
+          Size="632,NaN"
           Id="e9a52478-1163-4e84-b397-1517a00dc32a"
           TopLeft="590,339" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incremental load to Prod\Upload to Production Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Incremental load to Prod\Staging Table">
     <Properties>
@@ -4667,7 +4910,7 @@ WHERE UserID =?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4677,63 +4920,12 @@ WHERE UserID =?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incremental load to Prod\Upload to Production Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Extract Error Rows to File">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="256,42"
-          Id="Package\Extract Error Rows to File\Retrieve Data From Error Result Set"
-          TopLeft="391,100" />
-        <NodeLayout
-          Size="228,42"
-          Id="Package\Extract Error Rows to File\Output Error Rows to CSV File"
-          TopLeft="401,306" />
-        <EdgeLayout
-          Id="Package\Extract Error Rows to File.Paths[Output 0]"
-          TopLeft="517,142">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,164"
-              Start="0,0"
-              End="0,156.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,156.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

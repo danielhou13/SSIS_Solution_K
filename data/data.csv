@@ -29,3 +29,4 @@ UserID,FullName,Age,Email,RegistrationDate,LastLoginDate,PurchaseTotal
 "134","Xena Molt","46","xenamolt@example.com","2019-03-03","2023-02-04","265.75"
 "135","Yogi Volt","48","yogivolt@example.com","2022-04-20","2023-02-03","276.00"
 "136","Zara Kolt","50","zarakolt@example.com","2020-11-11","2023-02-02","286.25"
+"137","Hara Kolt","50","harakolt@example.com","2020-11-11","2023-02-02","Not a float"

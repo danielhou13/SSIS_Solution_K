@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="93"
-  DTS:VersionGUID="{30C99DC5-C13E-497C-A098-04EA50CED0D0}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{007FD2AA-F2B2-409A-A77A-26EDF246B2B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -103,6 +103,85 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Error Row Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Connection Manager for redirecting error rows"
+      DTS:DTSID="{60B6E5C5-4B76-4C38-99E1-F2387F1731AF}"
+      DTS:ObjectName="Error Row Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SSIS_Solution_K\data\error.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UserID"
+              DTS:DTSID="{DE98D5F2-CBD9-4FA5-8B23-3AE7EEA94690}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FullName"
+              DTS:DTSID="{70E77E6E-F8CA-4EAE-A8D8-23C19E3768A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{0CA47796-369F-4720-8363-B97EE1DD49E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{419EF06E-9186-4403-A1D3-541920A6C941}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{AA94038C-38E3-4B8A-974B-C48EE87D6E38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastLoginDate"
+              DTS:DTSID="{2240CD9C-F318-410D-B3BA-04903F817A8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PurchaseTotal"
+              DTS:DTSID="{1A8DE2F0-D698-44FC-9533-9137C1772713}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost Kore Assignmnet DB connection]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
@@ -116,6 +195,24 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B761616-9910-4F24-BC27-DDF028ACE583}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorRows">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{B614CCD7-DBDB-417F-993A-BC3BA7CDA04F}"
@@ -766,7 +863,1279 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
-          SQLTask:SqlStatementSource="EXEC dbo.clean_staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="EXEC dbo.remove_duplicates_from_staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Error Rows to File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{13CFB55C-B94D-447D-B1E5-0125BA43931B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Error Rows to File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Error Rows to File\Output Error Rows to CSV File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Output Error Rows to CSV File"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Error Row Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Error Row Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[PurchaseTotal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PurchaseTotal"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[LastLoginDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LastLoginDate"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[RegistrationDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[FullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].Columns[UserID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      externalMetadataColumnId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[UserID]"
+                      dataType="r8"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[FullName]"
+                      dataType="dbDate"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      dataType="dbDate"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="i4"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[LastLoginDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input].ExternalColumns[PurchaseTotal]"
+                      dataType="i4"
+                      name="PurchaseTotal" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Retrieve Data From Error Result Set"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public Output0Buffer Output0Buffer;
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != Output0Buffer)
+        {
+            Output0Buffer.SetEndOfRowset();
+            Output0Buffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Output 0"))
+            {
+                Output0Buffer = new Output0Buffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+        FinishOutputs();
+        MarkOutputsFinished();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public Object ErrorRows
+    {
+        get
+        {
+            return (Object)(ParentComponent.ReadOnlyVariables["ErrorRows"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using System.Data.OleDb;
+using System.Windows.Forms;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    public override void CreateNewOutputRows()
+    {
+        /*
+          Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
+          For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
+        */
+        // https://www.timmitchell.net/post/2015/04/20/using-the-ssis-object-variable-as-a-data-flow-source/
+        // Set up the DataAdapter to extract the data, and the DataTable object to capture those results
+        OleDbDataAdapter da = new OleDbDataAdapter();
+        DataTable dt = new DataTable();
+
+        // Extract the data from the object variable into the table
+        da.Fill(dt, Variables.ErrorRows);
+
+        // Since we know the column metadata at design time, we simply need to iterate over each row in
+        //  the DataTable, creating a new row in our Data Flow buffer for each
+        foreach (DataRow dr in dt.Rows)
+        {
+            // Create a new, empty row in the output buffer
+            Output0Buffer.AddRow();
+
+            // Now populate the columns
+            Output0Buffer.UserID = dr["UserID"].ToString();
+            Output0Buffer.FullName = dr["FullName"].ToString();
+            Output0Buffer.Age = dr["Age"].ToString();
+            Output0Buffer.Email = dr["Email"].ToString();
+            Output0Buffer.RegistrationDate = dr["RegistrationDate"].ToString();
+            Output0Buffer.LastLoginDate = dr["LastLoginDate"].ToString();
+            Output0Buffer.PurchaseTotal = dr["PurchaseTotal"].ToString();
+
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Output0Buffer: ScriptBuffer
+
+{
+    public Output0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String PurchaseTotal
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool PurchaseTotal_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String LastLoginDate
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool LastLoginDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String RegistrationDate
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool RegistrationDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Email
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool Email_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Age
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool Age_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String UserID
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool UserID_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String FullName
+    {
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool FullName_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_d40fefd7a9594660af4c5997c4e57032.Properties.Settings.get_Default():SC_d40fefd7a9594660af4c5997c4e57032.Properties.Sett" +
+    "ings")]
+
+namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_d40fefd7a9594660af4c5997c4e57032.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8a27c6b1-fa6f-4e1b-b469-0091406c6e78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_d40fefd7a9594660af4c5997c4e57032</RootNamespace>
+    <AssemblyName>SC_d40fefd7a9594660af4c5997c4e57032</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_d40fefd7a9594660af4c5997c4e57032" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_d40fefd7a9594660af4c5997c4e57032</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_d40fefd7a9594660af4c5997c4e57032</msb:DisplayName>
+    <msb:ProjectId>{A5E46C0A-7E71-437C-AEF0-36690D45DF1B}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_d40fefd7a9594660af4c5997c4e57032.csproj" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_d40fefd7a9594660af4c5997c4e57032")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_d40fefd7a9594660af4c5997c4e57032")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_d40fefd7a9594660af4c5997c4e57032.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_d40fefd7a9594660af4c5997c4e57032.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_d40fefd7a9594660af4c5997c4e57032.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_d40fefd7a9594660af4c5997c4e57032.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_d40fefd7a9594660af4c5997c4e57032.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[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
+AAACADMGAAADAGUHAAAEAGgFAAABAOwHAAABAOwHAAABAJIDCQAmBgEAEQAmBgYAGQAmBgoAKQAm
+BhAAMQAmBhAAOQAmBhAAQQAmBhAASQAmBhAAUQAmBhAAWQAmBhAAYQAmBhAAaQAmBgYAuQAmBgYA
+2QAmBhUA6QAmBgYAqQB7AwYAqQCGAwYA8QAmBgYAcQAmBgYA8QAVBCYAcQB7By0AAQEYBjIAeQD2
+BzcAgQC2BDsAsQCyA0AAeQBMCEQAiQCZAQYAkQAmBkgAkQC/BFIAkQCuBAEACQEmBhAAkQChCAYA
+kQCtBwYAkQCwB0QAqQAmBgYAqQByAFwAqQAsB2MAsQAmBgYAqQACB2kAEQG2BG8AqQCECHYAGQFV
+CHwAMQH5AIMAMQGoCIwAwQAmBpIA4QAmBgYALgALABMBLgATABwBLgAbADsBLgAjAEQBLgArAG0B
+LgAzAG0BLgA7AG0BLgBDAEQBLgBLAHMBLgBTAG0BLgBbAIoBQwBjANQB4wBrANQBAQF7ANQBCQJz
+ADsBKQJzADsBGwBYAAMAAQAGAA8ABwAQAAgAEgAAAL8D+AAAAIgE/AAAAKUB+AAAAFME/AAAALcB
++AAAAGwE/AAAAOcD+AAAAKEE/AAAAM0A+AAAADAE/AAAAGsA+AAAAB4E/AAAAA8B+AAAAD8E/AAA
+AIgHAAEAAMMFBAEAAF4BCQEAAMAHDgEBAAYAAwABAAcABQABAAgABwABAAkACQABAAoACwABAAsA
+DQABAAwADwABAA0AEQABAA4AEwABAA8AFQABABAAFwABABEAGQABABIAGwABABMAHQACAB4AHwAC
+ACAAIQACACEAIwABACIAIwACACMAJQAEgAAAAQAAAAAAAAAAAAAAAAA6AAAABAAAAAAAAAAAAAAA
+mgCcAAAAAAAQAAAAAAAAAAAAAACjAAIIAAAAAAQAAAAAAAAAAAAAAJoAfgAAAAAAEAAAAAAAAAAA
+AAAAowAfCAAAAAAEAAAAAAAAAAAAAACaAMgEAAAAABAAAAAAAAAAAAAAAKMAcgUAAAAAAAAAAAEA
+AACBBgAAAAAAAABJRFRTVmFyaWFibGUxMDAASURUU1ZhcmlhYmxlczEwMABJRFRTRXZhbHVhdG9y
+Q29udGV4dDEwMABTQ19kNDBmZWZkN2E5NTk0NjYwYWY0YzU5OTdjNGU1NzAzMgA8TW9kdWxlPgBz
+ZXRfVXNlcklEAEdldE91dHB1dElEAFN5c3RlbS5EYXRhAFN5c3RlbS5EYXRhLk9sZURiAG1zY29y
+bGliAE1hcmtPdXRwdXRzRmluaXNoZWQAZGVmYXVsdEluc3RhbmNlAHNldF9BZ2UARGF0YVRhYmxl
+AElEaXNwb3NhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAHNldF9GdWxs
+TmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNl
+dF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBJbnRlcm5hbERhdGFDb2xsZWN0aW9uQmFzZQBBcHBs
+aWNhdGlvblNldHRpbmdzQmFzZQBEaXNwb3NlAHNldF9MYXN0TG9naW5EYXRlAHNldF9SZWdpc3Ry
+YXRpb25EYXRlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRl
+AERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JC
+cm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFy
+a0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9u
+QXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0
+aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRB
+dHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlD
+b21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFByZUV4ZWN1dGUA
+UG9zdEV4ZWN1dGUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBzZXRf
+UHVyY2hhc2VUb3RhbABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAc2V0X0VtYWlsAFNDX2Q0MGZlZmQ3
+YTk1OTQ2NjBhZjRjNTk5N2M0ZTU3MDMyLmRsbABGaWxsAHNldF9Vc2VySURfSXNOdWxsAHNldF9B
+Z2VfSXNOdWxsAHNldF9GdWxsTmFtZV9Jc051bGwAc2V0X0xhc3RMb2dpbkRhdGVfSXNOdWxsAHNl
+dF9SZWdpc3RyYXRpb25EYXRlX0lzTnVsbABzZXRfUHVyY2hhc2VUb3RhbF9Jc051bGwAc2V0X0Vt
+YWlsX0lzTnVsbABTZXROdWxsAGdldF9JdGVtAHNldF9JdGVtAFN5c3RlbQByZXNvdXJjZU1hbgBT
+Y3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3Rl
+bS5SZWZsZWN0aW9uAERhdGFSb3dDb2xsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24A
+Q3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAATWljcm9zb2Z0LlNxbFNlcnZlci5E
+VFNSdW50aW1lV3JhcABPdXRwdXQwQnVmZmVyAFBpcGVsaW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBn
+ZXRfUmVzb3VyY2VNYW5hZ2VyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUuV3JhcHBl
+cgBPbGVEYkRhdGFBZGFwdGVyAElFbnVtZXJhdG9yAEdldEVudW1lcmF0b3IALmN0b3IALmNjdG9y
+AE91dHB1dElEcwBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2
+aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDX2Q0MGZlZmQ3YTk1OTQ2NjBhZjRjNTk5N2M0ZTU3MDMy
+LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ19kNDBmZWZk
+N2E5NTk0NjYwYWY0YzU5OTdjNGU1NzAzMi5Qcm9wZXJ0aWVzAGdldF9SZWFkT25seVZhcmlhYmxl
+cwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMAU2V0dGluZ3MAU3lzdGVtLkNv
+bGxlY3Rpb25zAENvbm5lY3Rpb25zAEJ1ZmZlcnMARmluaXNoT3V0cHV0cwBnZXRfUm93cwBnZXRf
+RXJyb3JSb3dzAENyZWF0ZU5ld091dHB1dFJvd3MAT2JqZWN0AFNldEVuZE9mUm93c2V0AGdldF9E
+ZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABnZXRf
+Q3VycmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIu
+UGlwZWxpbmVIb3N0AFByaW1lT3V0cHV0AE1vdmVOZXh0AEdldFZhbHVlV2l0aENvbnRleHQAU2Ny
+aXB0Q29tcG9uZW50RXZhbENvbnRleHQAZ2V0X0V2YWx1YXRvckNvbnRleHQARGF0YVJvdwBBZGRS
+b3cAZ2V0X0Fzc2VtYmx5AAAAAAANVQBzAGUAcgBJAEQAABFGAHUAbABsAE4AYQBtAGUAAAdBAGcA
+ZQAAC0UAbQBhAGkAbAAAIVIAZQBnAGkAcwB0AHIAYQB0AGkAbwBuAEQAYQB0AGUAABtMAGEAcwB0
+AEwAbwBnAGkAbgBEAGEAdABlAAAbUAB1AHIAYwBoAGEAcwBlAFQAbwB0AGEAbAAAgJtJAHMATgB1
+AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8A
+IABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABl
+ACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AABFPAHUAdABwAHUAdAAgADAAABNFAHIA
+cgBvAHIAUgBvAHcAcwAAcVMAQwBfAGQANAAwAGYAZQBmAGQANwBhADkANQA5ADQANgA2ADAAYQBm
+ADQAYwA1ADkAOQA3AGMANABlADUANwAwADMAMgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUA
+cwBvAHUAcgBjAGUAcwAATyyAuqtiYEmeteTPiyICuQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
+aQoHBBI5Ej0SQRJFBiACCBI5HAQgABJ9BCAAEj0DIAAcBCABHA4DIAAOAyAAAgkgAwESTR0IElEF
+IAIBCBwDBwEIBgACCBJRDgUgAR0ICAUgABKAiQYgARKAjRwFAAASgJEGIAEcEoCVCAABEoCZEYCd
+BSAAEoChByACAQ4SgKEIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGEgwDBhJVAwYSYQMGEmUD
+BhIgBCABAQILIAQBCB0IHRJNElEFIAEBElUEAAASYQQAABJlBQABARJlBAAAEiADAAABAygADgMo
+AAIDKAAcBAgAEmEECAASZQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhy
+b3dzAQgBAAIAAAAAACgBACNTQ19kNDBmZWZkN2E5NTk0NjYwYWY0YzU5OTdjNGU1NzAzMgAABQEA
+AAAAFgEAEUNvcHlyaWdodCBAICAyMDI0AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcB
+AFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwQBAAAAAAAAtAAAAM7K
+774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVy
+c2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkz
+NGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQ
+QURQtAAAACA5AAAAAAAAAAAAADo5AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsOQAAAAAAAAAA
+AAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABT
+AEMAXwBkADQAMABmAGUAZgBkADcAYQA5ADUAOQA0ADYANgAwAGEAZgA0AGMANQA5ADkANwBjADQA
+ZQA1ADcAMAAzADIAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAu
+ADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfAGQANAAwAGYAZQBmAGQA
+NwBhADkANQA5ADQANgA2ADAAYQBmADQAYwA1ADkAOQA3AGMANABlADUANwAwADMAMgAuAGQAbABs
+AAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQA
+IABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAA
+AAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AZAA0ADAA
+ZgBlAGYAZAA3AGEAOQA1ADkANAA2ADYAMABhAGYANABjADUAOQA5ADcAYwA0AGUANQA3ADAAMwAy
+AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfAGQANAAwAGYA
+ZQBmAGQANwBhADkANQA5ADQANgA2ADAAYQBmADQAYwA1ADkAOQA3AGMANABlADUANwAwADMAMgAA
+ADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgA
+AQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAATDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_d40fefd7a9594660af4c5997c4e57032</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::ErrorRows</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">00</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0]"
+                  hasSideEffects="true"
+                  name="Output 0">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[PurchaseTotal]"
+                      name="PurchaseTotal" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[LastLoginDate]"
+                      name="LastLoginDate" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[UserID]"
+                      name="UserID" />
+                    <outputColumn
+                      refId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0].Columns[FullName]"
+                      name="FullName" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Error Rows to File.Paths[Output 0]"
+              endId="Package\Extract Error Rows to File\Output Error Rows to CSV File.Inputs[Flat File Destination Input]"
+              name="Output 0"
+              startId="Package\Extract Error Rows to File\Retrieve Data From Error Result Set.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1038,7 +2407,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[UserID Converted]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[UserID Converted]"
                       name="UserID Converted"
                       truncationRowDisposition="FailComponent">
@@ -1058,7 +2427,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[FullName Converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="255"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[FullName Converted]"
                       name="FullName Converted"
@@ -1079,7 +2448,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Age Converted]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Age Converted]"
                       name="Age Converted"
                       truncationRowDisposition="FailComponent">
@@ -1099,7 +2468,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Email Converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="255"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[Email Converted]"
                       name="Email Converted"
@@ -1120,7 +2489,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[RegistrationDate Converted]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[RegistrationDate Converted]"
                       name="RegistrationDate Converted"
                       truncationRowDisposition="FailComponent">
@@ -1140,7 +2509,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[LastLoginDate Converted]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[LastLoginDate Converted]"
                       name="LastLoginDate Converted"
                       truncationRowDisposition="FailComponent">
@@ -1160,7 +2529,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       refId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[PurchaseTotal Converted]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Import CSV data to Staging Table\Convert to DB datatypes.Outputs[Data Conversion Output].Columns[PurchaseTotal Converted]"
                       name="PurchaseTotal Converted"
                       truncationRowDisposition="FailComponent">
@@ -2688,6 +4057,28 @@ WHERE UserID =?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Isolate Error Rows"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B01F5FA1-8C5C-4189-AA58-5430F801F91A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Isolate Error Rows"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D496B891-9896-453D-8C25-8D9FBA045AFB}"
+          SQLTask:SqlStatementSource="EXEC dbo.extract_error_rows"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ErrorRows" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncating Staging Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -2733,11 +4124,27 @@ WHERE UserID =?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{2822E68C-6F94-46C2-80F7-4E8E092E760C}"
+      DTS:DTSID="{DFFBCB9C-EB26-4A4D-A7A0-6592D1F019A6}"
       DTS:From="Package\Clean Staging Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Isolate Error Rows" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{02B5C85F-199B-4D69-A544-332279BA3964}"
+      DTS:From="Package\Isolate Error Rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
       DTS:To="Package\Incremental load to Prod" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{28C947A0-7C00-46D2-AB2A-5880FB3A0F2A}"
+      DTS:From="Package\Isolate Error Rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Extract Error Rows to File" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2758,7 +4165,7 @@ WHERE UserID =?</property>
         <NodeLayout
           Size="179,42"
           Id="Package\Clean Staging Table"
-          TopLeft="569,405" />
+          TopLeft="566,364" />
         <NodeLayout
           Size="243,42"
           Id="Package\Import CSV data to Staging Table"
@@ -2766,7 +4173,7 @@ WHERE UserID =?</property>
         <NodeLayout
           Size="199,42"
           Id="Package\Incremental load to Prod"
-          TopLeft="556,520" />
+          TopLeft="758,524" />
         <NodeLayout
           Size="202,42"
           Id="Package\Truncating Staging Table"
@@ -2817,40 +4224,18 @@ WHERE UserID =?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="660,334">
+          TopLeft="658.5,334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,71"
+              EndConnector="0,30"
               Start="0,0"
-              End="0,63.5">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="657,447">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73"
-              Start="0,0"
-              End="0,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.5" />
+                    End="0,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2872,7 +4257,112 @@ WHERE UserID =?</property>
           FontInfo="{assembly:Null}"
           Size="517,60"
           Id="d3924d4b-6b42-4cee-9132-8262fb705d17"
-          TopLeft="771,404" />
+          TopLeft="773,385" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Isolate Error Rows"
+          TopLeft="570,443" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="655,406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="681.333333333333,485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.166666666667,39"
+              Start="0,0"
+              End="176.166666666667,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.8194607268464" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.8194607268464"
+                    Point2="0,15.8194607268464"
+                    Point3="4,15.8194607268464" />
+                  <mssgle:LineSegment
+                    End="172.166666666667,15.8194607268464" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.166666666667,15.8194607268464"
+                    Point2="176.166666666667,15.8194607268464"
+                    Point3="176.166666666667,19.8194607268464" />
+                  <mssgle:LineSegment
+                    End="176.166666666667,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Extract Error Rows to File"
+          TopLeft="319,519" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="627.666666666667,485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.666666666667,34"
+              Start="0,0"
+              End="-206.666666666667,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.79132473622508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.79132473622508"
+                    Point2="0,13.7913247362251"
+                    Point3="-4,13.7913247362251" />
+                  <mssgle:LineSegment
+                    End="-202.666666666667,13.7913247362251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-202.666666666667,13.7913247362251"
+                    Point2="-206.666666666667,13.7913247362251"
+                    Point3="-206.666666666667,17.7913247362251" />
+                  <mssgle:LineSegment
+                    End="-206.666666666667,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Send error rows here"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="140,60"
+          Id="28d1a9ca-dab0-40cb-bca1-9d0c168d86dd"
+          TopLeft="440,469" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2884,26 +4374,26 @@ WHERE UserID =?</property>
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Convert to DB datatypes"
-          TopLeft="21.4,209.5" />
+          TopLeft="23.4,286.5" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Sort by User ID"
-          TopLeft="21.4,349" />
+          TopLeft="23.4,426" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Remove &quot;null&quot; from numeric columns"
-          TopLeft="21.4,106.5" />
+          TopLeft="23.4,183.5" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Add to staging table"
-          TopLeft="23.4,498.5" />
+          TopLeft="25.4,575.5" />
         <NodeLayout
           Size="259,42"
           Id="Package\Import CSV data to Staging Table\Import data from CSV file"
           TopLeft="21.4,5.5" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Sort Output]"
-          TopLeft="151.9,391">
+          TopLeft="153.9,468">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2924,30 +4414,8 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import CSV data to Staging Table.Paths[Flat File Source Output]"
-          TopLeft="150.9,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Derived Column Output]"
-          TopLeft="150.9,148.5">
+          TopLeft="152.9,225.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2969,7 +4437,7 @@ WHERE UserID =?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Data Conversion Output]"
-          TopLeft="150.9,251.5">
+          TopLeft="152.9,328.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2990,12 +4458,12 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms."
+          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xD;&#xA;&#xD;&#xA;If we cannot convert to the datatypes here, we assume a faulty row and remove it."
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
-          Size="606,72"
+          Size="606,104"
           Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
-          TopLeft="288.5,252.5" />
+          TopLeft="290.5,329.5" />
         <AnnotationLayout
           Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
           ParentId="Package\Import CSV data to Staging Table"
@@ -3003,6 +4471,28 @@ WHERE UserID =?</property>
           Size="589,72"
           Id="3ba413e3-6026-4445-b0f0-c85c55086525"
           TopLeft="285,27.4999999999999" />
+        <EdgeLayout
+          Id="Package\Import CSV data to Staging Table.Paths[Flat File Source Output]"
+          TopLeft="151.9,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,136"
+              Start="0,0"
+              End="0,128.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,128.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3142,10 +4632,10 @@ WHERE UserID =?</property>
           Id="e7a8ce32-3498-44ad-aae9-690c2c5453ae"
           TopLeft="285,191" />
         <AnnotationLayout
-          Text="For updating the data, if theres a null value in the new data coming in, we don't use the null values, &#xD;&#xA;instead using the previous value already in the PROD table. *point of discussion*"
+          Text="For updating the data, if theres a null value in the new data coming in, use previous value already in prod table for&#xD;&#xA;name, registration date, last login, and email. &#xD;&#xA;*point of discussion*"
           ParentId="Package\Incremental load to Prod"
           FontInfo="{assembly:Null}"
-          Size="555,60"
+          Size="632,72"
           Id="e9a52478-1163-4e84-b397-1517a00dc32a"
           TopLeft="590,339" />
       </GraphLayout>
@@ -3200,5 +4690,43 @@ WHERE UserID =?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Error Rows to File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Extract Error Rows to File\Retrieve Data From Error Result Set"
+          TopLeft="391,100" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Extract Error Rows to File\Output Error Rows to CSV File"
+          TopLeft="401,306" />
+        <EdgeLayout
+          Id="Package\Extract Error Rows to File.Paths[Output 0]"
+          TopLeft="517,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,164"
+              Start="0,0"
+              End="0,156.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,156.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

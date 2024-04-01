@@ -2,7 +2,7 @@
 
 This is my solution for the K assessment. The package is in the folder `Package Solution/K Assessment Asolution/`. The package contains 3 connection managers, two flat file connection managers that need directory paths, as well as 1 database connector.
 
-Additionally, there are 2 user-defined variables `User::ErrorRows` (for extracting error rows from staging table), and `User::Filename` (which contains the path to the `data/data.csv` file). `User::Filename` variable will likely need to be changed for your machine depending on where this repo is stored.
+Additionally, there are 2 user-defined variables for scripting: `User::ErrorRows` (for extracting error rows from the staging table), and `User::Filename` (which contains the path to the `data/data.csv` file). The `User::Filename` variable will likely need to be changed for your machine depending on where this repo is stored.
 
 The zip file `Package_Execution_results` contains the results of running the package. It has a copy of the database backup (also found in `database/backup`) and the **populated** error.csv file ( whereas the file in the `data` folder is an **empty** error.csv). 
 

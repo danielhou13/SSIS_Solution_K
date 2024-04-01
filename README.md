@@ -8,11 +8,11 @@ The zip file `Package_Execution_results` contains the results of running the pac
 
 ## CSV Files 
 
-CSV files are stored in the "data" folder. The main data.csv contains the data we want to move to production as well as an **empty** error.csv file for redirecting error rows.
+CSV files are stored in the "data" folder. The main data.csv contains the data we want to move to production, and the **empty** error.csv file is for redirecting error rows.
 
 ## Database Setup/Restore
 
-All database files are located in the `database` folder. Inside includes a setup.sql file used to initialize the database locally (with the appropriate name instead of `{FirstName_LastName}`).
-A backup file is included to restore the database called "KoreAssignment_Daniel_hou.bak". The database restore will have two stored procedures for removing duplicate values and redirecting error rows to the above "data/error.csv file". *This file is included in `Package_Execution_Results.zip`*.
+All database-related files are located in the `database` folder. Inside includes a setup.sql file used to initialize the database locally (with the appropriate name instead of `{FirstName_LastName}`).
+A backup file is included to restore the database called "KoreAssignment_Daniel_hou.bak". The database restore will have two stored procedures for removing duplicate values and redirecting error rows to the above "data/error.csv file". *This file is also included in `Package_Execution_Results.zip`*.
 
-There are also stored procedures used to clean and de-duplicate the staging table. The full database backup will include all stored procedures used.
+The stored procedures used to clean and de-duplicate the staging table also in the `database/stored_procedures` folder for quick examination, but the full database backup will include all stored procedures used.

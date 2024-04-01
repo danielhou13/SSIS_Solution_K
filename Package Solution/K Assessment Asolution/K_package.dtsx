@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="158"
-  DTS:VersionGUID="{BAC001E3-65BF-44CA-B400-11BFF8F03FEC}">
+  DTS:VersionBuild="160"
+  DTS:VersionGUID="{30B5A7B4-3E49-4171-8E0C-5398349D805C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -490,15 +490,17 @@ namespace ST_6f6b9286f39940d49e63e270e75f7401
 		public void Main()
 		{
             // https://stackoverflow.com/questions/52010718/remove-extra-spaces-from-data-with-ssis
+            // get filepath
             string fpath = Dts.Variables["User::Filename"].Value.ToString();
+            //read file contents
             string readContents;
             using (StreamReader sr = new StreamReader(fpath, Encoding.UTF8))
             {
                 readContents = sr.ReadToEnd();
-                readContents = Regex.Replace(readContents, "\" ", "\"");   //This code removes the extra space between every column.
-                                                                          //readContents = Regex.Replace(readContents, " \r\n", "\r\n"); //This removes the extra space at the end of a line
+                // remove spaces after the text qualifier to prevent bugs
+                readContents = Regex.Replace(readContents, "\" ", "\"");
             }
-
+            //write contents to file
             File.WriteAllText(fpath, readContents);
             Dts.TaskResult = (int)ScriptResults.Success;
 		}
@@ -613,7 +615,7 @@ namespace ST_6f6b9286f39940d49e63e270e75f7401
     <msb:CodeName>ST_6f6b9286f39940d49e63e270e75f7401</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_6f6b9286f39940d49e63e270e75f7401</msb:DisplayName>
-    <msb:ProjectId>{53575DFA-636B-4C35-B51B-6FF16CA59464}</msb:ProjectId>
+    <msb:ProjectId>{0C80F14D-2FB2-43CE-BCD0-90430818157F}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_6f6b9286f39940d49e63e270e75f7401.csproj" />
@@ -735,12 +737,12 @@ namespace ST_6f6b9286f39940d49e63e270e75f7401.Properties {
           <BinaryItem
             Name="ST_6f6b9286f39940d49e63e270e75f7401.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAGb1CWYAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAA2i4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDACVnCmYAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAA2i4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIguAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIguAABPAAAAAEAAAGwEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA4A4AAAAgAAAAEAAAAAIA
-AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAGwEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
 LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC8
 LgAAAAAAAEgAAAACAAUAOCEAAJgMAAABAAAAAAAAANAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswAwBkAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
@@ -765,7 +767,7 @@ kQBDAzYA4QAlADoAeQCEBD8A6QBxADYA8QB7AEYA+QBaAQYAAQHYBU0AyQC9BQEAcQCEBAYAkQCE
 BAYACQG6AFMACQHrBVwAmQCEBGIAuQCEBAYACAAUAHwACAAYAIEAKQBzAOkALgALAMEALgATAMoA
 LgAbAOkALgAjAPIALgArABsBLgAzABsBLgA7ABsBLgBDAPIALgBLACEBLgBTABsBLgBbADgBQwBj
 AIEASQBzAOkAYQB7AIEAYwBrAIEAGwADAAEABAADAAAAdASyAAAAHgG3AAAAtQW8AAIABAADAAIA
-BQAFAAEABgAFAAIABwAHAASAAAABAAAAmCK7dQAAAAAAAAEAAAAEAAAAAAAAAAAAAABqAGgAAAAA
+BQAFAAEABgAFAAIABwAHAASAAAABAAAAmSLaBQAAAAAAAAEAAAAEAAAAAAAAAAAAAABqAGgAAAAA
 ABAAAAAAAAAAAAAAAHMATAMAAAAABAAAAAAAAAAAAAAAagDtAwAAAAAQAAAAAAAAAAAAAABzAEEA
 AAAAAAAAAAABAAAA1QQAAAUAAgAAAABTVF82ZjZiOTI4NmYzOTk0MGQ0OWU2M2UyNzBlNzVmNzQw
 MQBnZXRfVVRGOAA8TW9kdWxlPgBTeXN0ZW0uSU8ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2Vk
@@ -796,8 +798,8 @@ Z3VsYXJFeHByZXNzaW9ucwBTdWNjZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0cwBPYmplY3QAZ2V0
 X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAU3lzdGVtLlRleHQAV3JpdGVBbGxUZXh0AFJlZ2V4AGdl
 dF9Bc3NlbWJseQAAHVUAcwBlAHIAOgA6AEYAaQBsAGUAbgBhAG0AZQAABSIAIAAAAyIAAHFTAFQA
 XwA2AGYANgBiADkAMgA4ADYAZgAzADkAOQA0ADAAZAA0ADkAZQA2ADMAZQAyADcAMABlADcANQBm
-ADcANAAwADEALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAADLAlcF
-aRPcTqXHtfH5joz0AAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFVBgcDDg4SPQQgABJlBCAAEmkF
+ADcANAAwADEALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAApx/KK
+2WpxTavmOWAWdSYIAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFVBgcDDg4SPQQgABJlBCAAEmkF
 IAESbRwDIAAcAyAADgQAABJxBiACAQ4ScQYAAw4ODg4FAAIBDg4IAAESgIURgIkFIAASgI0HIAIB
 DhKAjQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJNAwYSUQMGEhACBggDBhEUBAAAEk0E
 AAASUQUAAQESUQQAABIQAwAAAQQIABJNBAgAElEECAASEAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5v
@@ -815,25 +817,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
-AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQC7dZgiAAABALt1mCI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AABIAAAAWEAAABAEAAAAAAAAAAAAABAENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQDaBZkiAAABANoFmSI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
-AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
+AG4AAAAAAAAAsARwAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABMAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADYAZgA2AGIAOQAyADgANgBmADMAOQA5ADQAMABkADQAOQBlADYAMwBlADIANwAw
-AGUANwA1AGYANwA0ADAAMQAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA4ADgANQA2AC4AMwAwADEAMwA5AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
-AFMAVABfADYAZgA2AGIAOQAyADgANgBmADMAOQA5ADQAMABkADQAOQBlADYAMwBlADIANwAwAGUA
-NwA1AGYANwA0ADAAMQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
-AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQA
-cgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBu
-AGEAbQBlAAAAUwBUAF8ANgBmADYAYgA5ADIAOAA2AGYAMwA5ADkANAAwAGQANAA5AGUANgAzAGUA
-MgA3ADAAZQA3ADUAZgA3ADQAMAAxAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
-AGUAAAAAAFMAVABfADYAZgA2AGIAOQAyADgANgBmADMAOQA5ADQAMABkADQAOQBlADYAMwBlADIA
-NwAwAGUANwA1AGYANwA0ADAAMQAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4AOAA4ADUANgAuADMAMAAxADMAOQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAA4ADUANgAuADMAMAAxADMAOQAAAAAAAAAAAAAAAAAA
+AGUANwA1AGYANwA0ADAAMQAAADwADgABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
+LgA4ADgANQA3AC4AMQA0ADkAOAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBU
+AF8ANgBmADYAYgA5ADIAOAA2AGYAMwA5ADkANAAwAGQANAA5AGUANgAzAGUAMgA3ADAAZQA3ADUA
+ZgA3ADQAMAAxAC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABD
+AG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAyADQAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEA
+ZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBt
+AGUAAABTAFQAXwA2AGYANgBiADkAMgA4ADYAZgAzADkAOQA0ADAAZAA0ADkAZQA2ADMAZQAyADcA
+MABlADcANQBmADcANAAwADEALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAA
+AAAAUwBUAF8ANgBmADYAYgA5ADIAOAA2AGYAMwA5ADkANAAwAGQANAA5AGUANgAzAGUAMgA3ADAA
+ZQA3ADUAZgA3ADQAMAAxAAAAQAAOAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAu
+ADAALgA4ADgANQA3AC4AMQA0ADkAOAAAAEQADgABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMA
+aQBvAG4AAAAxAC4AMAAuADgAOAA1ADcALgAxADQAOQA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1359,6 +1361,7 @@ public class ScriptMain : UserComponent
           Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
           For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
         */
+        // Tutorial comes from the following link:
         // https://www.timmitchell.net/post/2015/04/20/using-the-ssis-object-variable-as-a-data-flow-source/
         // Set up the DataAdapter to extract the data, and the DataTable object to capture those results
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -1719,7 +1722,7 @@ namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
     <msb:CodeName>SC_d40fefd7a9594660af4c5997c4e57032</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_d40fefd7a9594660af4c5997c4e57032</msb:DisplayName>
-    <msb:ProjectId>{A446D622-7F1A-413E-A4B4-23848E3967DC}</msb:ProjectId>
+    <msb:ProjectId>{8EFE45D0-3984-41C7-88F6-206E1A52802A}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_d40fefd7a9594660af4c5997c4e57032.csproj" />
@@ -1866,7 +1869,7 @@ namespace SC_d40fefd7a9594660af4c5997c4e57032.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEjgCWYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAASjkA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAFVnCmYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAASjkA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPg4AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1973,7 +1976,7 @@ IABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABl
 ACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AABFPAHUAdABwAHUAdAAgADAAABNFAHIA
 cgBvAHIAUgBvAHcAcwAAcVMAQwBfAGQANAAwAGYAZQBmAGQANwBhADkANQA5ADQANgA2ADAAYQBm
 ADQAYwA1ADkAOQA3AGMANABlADUANwAwADMAMgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUA
-cwBvAHUAcgBjAGUAcwAAER4EOtxp/E+tQTAQc+7t+gAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
+cwBvAHUAcgBjAGUAcwAAnyBtBVPvI0a0gMQIj1wkZgAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQER
 aQoHBBI5Ej0SQRJFBiACCBI5HAQgABJ9BCAAEj0DIAAcBCABHA4DIAAOAyAAAgkgAwESTR0IElEF
 IAIBCBwDBwEIBgACCBJRDgUgAR0ICAUgABKAiQYgARKAjRwFAAASgJEGIAEcEoCVCAABEoCZEYCd
 BSAAEoChByACAQ4SgKEIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGEgwDBhJVAwYSYQMGEmUD
@@ -4441,10 +4444,6 @@ WHERE UserID =?</property>
           Id="Package\Clean csv file to remove trailing spaces after text qualifier"
           TopLeft="478,45" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\Remove Duplicates"
-          TopLeft="566,364" />
-        <NodeLayout
           Size="204,42"
           Id="Package\Extract Error Rows to File"
           TopLeft="319,519" />
@@ -4460,6 +4459,10 @@ WHERE UserID =?</property>
           Size="169,42"
           Id="Package\Isolate Error Rows"
           TopLeft="570,443" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Remove Duplicates"
+          TopLeft="566,364" />
         <NodeLayout
           Size="202,42"
           Id="Package\Truncating Staging Table"
@@ -4640,7 +4643,7 @@ WHERE UserID =?</property>
           Id="20bd868c-5b1c-44dd-852b-42511982edd0"
           TopLeft="680,90" />
         <AnnotationLayout
-          Text="Clean up the staging table using a stored procedures. Remove duplicates based on UserID&#xD;&#xA;&#xD;&#xA;Redirect error rows based on invalid email, null email or null PurchaseTotal. "
+          Text="Clean up the staging table using a stored procedures. Remove duplicates based on UserID&#xA;&#xA;Redirect error rows based on invalid email, null email or null PurchaseTotal. "
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="505,72"
@@ -4664,7 +4667,7 @@ WHERE UserID =?</property>
           Text="Reset staging table"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="130,60"
+          Size="130,40"
           Id="4bdf322a-903f-4f4a-b731-6f0918113e86"
           TopLeft="760,224" />
       </GraphLayout>
@@ -4709,14 +4712,14 @@ WHERE UserID =?</property>
           Text="Retrieve error rows from our clean staging table stored procedure. Append the rows onto the error.csv file."
           ParentId="Package\Extract Error Rows to File"
           FontInfo="{assembly:Null}"
-          Size="591,60"
+          Size="591,40"
           Id="230982cf-0385-4513-acaf-06026becd5b8"
           TopLeft="647,102" />
         <AnnotationLayout
-          Text="The csv file at this stage of the task has header values set for us.&#xD;&#xA;Append remaining error rows to the end."
+          Text="The csv file at this stage of the task has header values set for us.&#xA;Append remaining error rows to the end."
           ParentId="Package\Extract Error Rows to File"
           FontInfo="{assembly:Null}"
-          Size="366,60"
+          Size="366,56"
           Id="e9655f0d-631d-4dfb-bd4b-8ce936ce662d"
           TopLeft="622,299" />
       </GraphLayout>
@@ -4729,10 +4732,6 @@ WHERE UserID =?</property>
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Sort by User ID"
-          TopLeft="23.4,426" />
-        <NodeLayout
-          Size="259,42"
           Id="Package\Import CSV data to Staging Table\Convert to DB datatypes"
           TopLeft="23.4,286.5" />
         <NodeLayout
@@ -4741,12 +4740,20 @@ WHERE UserID =?</property>
           TopLeft="23.4,183.5" />
         <NodeLayout
           Size="259,42"
+          Id="Package\Import CSV data to Staging Table\Import data from CSV file"
+          TopLeft="21.4,5.5" />
+        <NodeLayout
+          Size="259,42"
           Id="Package\Import CSV data to Staging Table\Add to staging table"
           TopLeft="25.4,575.5" />
         <NodeLayout
           Size="259,42"
-          Id="Package\Import CSV data to Staging Table\Import data from CSV file"
-          TopLeft="21.4,5.5" />
+          Id="Package\Import CSV data to Staging Table\Sort by User ID"
+          TopLeft="23.4,426" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Import CSV data to Staging Table\Flat File Destination"
+          TopLeft="534,290" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Sort Output]"
           TopLeft="153.9,468">
@@ -4835,24 +4842,6 @@ WHERE UserID =?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xA;&#xA;If we converting data types gives us an error, we assume a faulty row and remove it/redirect it to the error csv."
-          ParentId="Package\Import CSV data to Staging Table"
-          FontInfo="{assembly:Null}"
-          Size="610,104"
-          Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
-          TopLeft="161.5,331.5" />
-        <AnnotationLayout
-          Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
-          ParentId="Package\Import CSV data to Staging Table"
-          FontInfo="{assembly:Null}"
-          Size="589,72"
-          Id="3ba413e3-6026-4445-b0f0-c85c55086525"
-          TopLeft="285,27.4999999999999" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Import CSV data to Staging Table\Flat File Destination"
-          TopLeft="534,290" />
         <EdgeLayout
           Id="Package\Import CSV data to Staging Table.Paths[Data Conversion Error Output]"
           TopLeft="282.4,309.25">
@@ -4878,24 +4867,38 @@ WHERE UserID =?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="With or without any error rows, we reset the error.csv &#xD;&#xA;for this file and add the headers in."
+          Text="Need to convert the data from the flat file source into agreeable data types for the staging table.&#xA;Right-clicking &quot;Staging Table Destination&quot;, clicking &quot;show advanced editor&quot; and going into &quot;input and output &#xA;properties&quot; gives us the table's datatypes in SSIS terms. &#xA;&#xA;If converting data types gives us error, we assume a faulty row and remove it/redirect it to the error csv."
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
-          Size="313,60"
+          Size="606,104"
+          Id="bc4e26b0-3bae-4527-8136-6eb8ccbfc10a"
+          TopLeft="161.5,331.5" />
+        <AnnotationLayout
+          Text="Some columns have values: &quot;null&quot;. For some columns, this is ok and we can remove it later. &#xA;For userID, age, and PurchaseTotal, we cannot convert &quot;null&quot; into a numeric value so we set them to NULL.&#xA;Non &quot;null&quot; values are unchanged."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="589,72"
+          Id="3ba413e3-6026-4445-b0f0-c85c55086525"
+          TopLeft="285,27.4999999999999" />
+        <AnnotationLayout
+          Text="With or without any error rows, we reset the error.csv &#xA;for this file and add the headers in."
+          ParentId="Package\Import CSV data to Staging Table"
+          FontInfo="{assembly:Null}"
+          Size="313,56"
           Id="98573f8a-53bb-4d04-bae6-cb5712c46a9b"
           TopLeft="496,245" />
         <AnnotationLayout
           Text="Looks nicer when sorted"
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
-          Size="158,60"
+          Size="158,40"
           Id="388b1631-8608-4546-8261-ba6d28fa9bcf"
           TopLeft="165,472" />
         <AnnotationLayout
           Text="Replace the word &quot;null&quot; with an actual NULL value."
           ParentId="Package\Import CSV data to Staging Table"
           FontInfo="{assembly:Null}"
-          Size="295,60"
+          Size="295,40"
           Id="a80f8913-a8aa-4aa8-83f7-c1bc364718a4"
           TopLeft="287,180" />
       </GraphLayout>

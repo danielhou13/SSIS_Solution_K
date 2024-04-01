@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="K_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="157"
-  DTS:VersionGUID="{574694B7-3D15-437A-BCE3-822AC4CC3FAD}">
+  DTS:VersionBuild="158"
+  DTS:VersionGUID="{BAC001E3-65BF-44CA-B400-11BFF8F03FEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4966,9 +4966,7 @@ WHERE UserID =?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5035,14 +5033,14 @@ WHERE UserID =?</property>
           Text="Using &quot;UserID&quot;, we can split the data flow into two parts. If theres no UserId in the produciton table, we add the new row in.&#xA;If we found the UserId, we know that we need to update the table with the new data. "
           ParentId="Package\Incremental load to Prod"
           FontInfo="{assembly:Null}"
-          Size="681,NaN"
+          Size="681,56"
           Id="e7a8ce32-3498-44ad-aae9-690c2c5453ae"
           TopLeft="285,191" />
         <AnnotationLayout
-          Text="For updating the data, if theres a null value in the new data coming in, use previous value already in prod table for&#xA;name, registration date, last login, and email. &#xA;*point of discussion*"
+          Text="For updating the data, if theres a null value in the new data coming in, use previous value already in prod table for&#xA;name, registration date, last login, and email. "
           ParentId="Package\Incremental load to Prod"
           FontInfo="{assembly:Null}"
-          Size="632,NaN"
+          Size="632,56"
           Id="e9a52478-1163-4e84-b397-1517a00dc32a"
           TopLeft="590,339" />
       </GraphLayout>
